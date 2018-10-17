@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 from matplotlib.ticker import AutoMinorLocator
 from matplotlib.ticker import MaxNLocator
 import cycler as cycler
-import datetime
+
 
 def plot1(x,y,xlabel='x',ylabel='y',legend=False,title=False):
 
@@ -22,8 +22,6 @@ def plot1(x,y,xlabel='x',ylabel='y',legend=False,title=False):
 	cmap=plt.cm.Set1
 	# build cycler with 5 equally spaced colors from that colormap,supply cycler to the rcParam
 	plt.rcParams["axes.prop_cycle"] = cycler.cycler('color', cmap(np.linspace(0,1,9)) )
-
-#	fig=plt.figure(); ax=fig.add_subplot(numberofplots,1,1)
 
 	f, axarr=plt.subplots()
 	
@@ -47,8 +45,6 @@ def plot2(x,y,xobs,yobs,yerr,xlabel='x',ylabel='y',legend=False,title=False):
 	cmap=plt.cm.Set1
 	# build cycler with 5 equally spaced colors from that colormap,supply cycler to the rcParam
 	plt.rcParams["axes.prop_cycle"] = cycler.cycler('color', cmap(np.linspace(0,1,9)) )
-
-#	fig=plt.figure(); ax=fig.add_subplot(numberofplots,1,1)
 
 	f, axarr=plt.subplots()
 	
@@ -74,8 +70,6 @@ def plot3(x1,y1,x2,y2,xlabel='x',ylabel='y',legend=False,title=False):
 	# build cycler with 5 equally spaced colors from that colormap,supply cycler to the rcParam
 	plt.rcParams["axes.prop_cycle"] = cycler.cycler('color', cmap(np.linspace(0,1,9)) )
 
-#	fig=plt.figure(); ax=fig.add_subplot(numberofplots,1,1)
-
 	f, axarr=plt.subplots(1,2)
 	
 	axarr[0].plot(x1,y1,'-')
@@ -99,8 +93,6 @@ def plot4(x1,y1,x2,y2,samples,xlabel='x',ylabel='y',legend=False,title=False):
 	cmap=plt.cm.Set1
 	# build cycler with 5 equally spaced colors from that colormap,supply cycler to the rcParam
 	plt.rcParams["axes.prop_cycle"] = cycler.cycler('color', cmap(np.linspace(0,1,9)) )
-
-#	fig=plt.figure(); ax=fig.add_subplot(numberofplots,1,1)
 
 	f, axarr=plt.subplots(1,2)
 	axarrt1=axarr[0].twinx()
@@ -132,7 +124,6 @@ def plot5(x,y,xobs,yobs,yerr,samples,xlabel='x',ylabel='y',legend=False,title=Fa
 	# build cycler with 5 equally spaced colors from that colormap,supply cycler to the rcParam
 	plt.rcParams["axes.prop_cycle"] = cycler.cycler('color', cmap(np.linspace(0,1,9)) )
 
-#	fig=plt.figure(); ax=fig.add_subplot(numberofplots,1,1)
 
 	f, axarr=plt.subplots()
 	
@@ -151,10 +142,6 @@ def plot5(x,y,xobs,yobs,yerr,samples,xlabel='x',ylabel='y',legend=False,title=Fa
 def formatplot(ax,xlabel,ylabel,legend,xlim,ylim,logx,logy,logxy,title):
 	my_dpi=150
 	
-#	logx=False
-#	logy=False
-#	logxy=False
-
 	######### SET AXES LIMITS #########
 
 	if xlim!=False:
@@ -216,10 +203,6 @@ def formatplot(ax,xlabel,ylabel,legend,xlim,ylim,logx,logy,logxy,title):
 
 	if legend==True:
 		ax.legend(loc='best', fontsize=22,numpoints=1)
-#	filename='plot_'+datetime.datetime.now().strftime("%Y%m%d_%H%M%S")+'_.pdf'
-
-#	plt.savefig(filename,dpi=my_dpi,bbox_inches='tight')
-
 
 
 
@@ -261,16 +244,11 @@ def plottraces(data,parameternames,parametertruths,nwalkers,niterations,save=1):
 		print()
 		print('Saving file...')
 		print()
-		plt.savefig('trace.png',dpi=my_dpi,bbox_inches='tight')
+		plt.savefig('plots/trace.png',dpi=my_dpi,bbox_inches='tight')
 	else:
 		plt.show()
 
 def formatplottrace(ax,parametername):
-
-	######### SET AXES LIMITS #########
-
-#	ax.set_xlim([0,35])
-#	ax.set_ylim([150,600])
 
 	######### SET TICK VALUES #########
 
